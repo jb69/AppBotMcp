@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "appbot": {
+      "command": "node",
+      "args": ["/absolute/path/to/AppBotMcp/dist/index.js"],
+      "env": {
+        "APPBOT_API_BASE_URL": "https://api.appbot.com",
+        "APPBOT_API_KEY": "your_actual_api_key_here",
+        "APPBOT_API_VERSION": "v1",
+        "LOG_LEVEL": "info"
+      }
+    }
+  }
+}

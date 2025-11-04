@@ -1,0 +1,46 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    },
+    "npm.enableRunFromFolder": true
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Build and Test MCP Server",
+        "dependsOrder": "sequence",
+        "dependsOn": ["AppBot - Build", "AppBot MCP - Test Connection"]
+      }
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Debug MCP Server (stdio)",
+        "type": "node",
+        "request": "launch",
+        "program": "${workspaceFolder}/dist/index.js",
+        "console": "integratedTerminal",
+        "envFile": "${workspaceFolder}/.env",
+        "skipFiles": ["<node_internals>/**"]
+      }
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-vscode.vscode-typescript-next",
+      "esbenp.prettier-vscode",
+      "ms-vscode.vscode-json"
+    ]
+  }
+}
