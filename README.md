@@ -13,40 +13,50 @@ A Model Context Protocol (MCP) server that provides tools for interacting with A
 ## Available Tools
 
 ### `get_app_info`
+
 Retrieves detailed information about a specific app.
 
 **Parameters:**
+
 - `appId` (string, required): The unique identifier of the app
 
 ### `search_apps`
+
 Searches for apps based on query and optional filters.
 
 **Parameters:**
+
 - `query` (string, required): Search query for apps
 - `category` (string, optional): Category filter
 - `limit` (number, optional): Maximum results to return (default: 10)
 
 ### `get_app_reviews`
+
 Gets reviews for a specific app with optional filtering.
 
 **Parameters:**
+
 - `appId` (string, required): The unique identifier of the app
 - `limit` (number, optional): Maximum reviews to return (default: 10)
 - `rating` (number, optional): Filter by rating (1-5 stars)
 
 ### `get_app_analytics`
+
 Retrieves analytics data for a specific app.
 
 **Parameters:**
+
 - `appId` (string, required): The unique identifier of the app
 - `startDate` (string, optional): Start date for analytics (YYYY-MM-DD)
 - `endDate` (string, optional): End date for analytics (YYYY-MM-DD)
 - `metrics` (array, optional): Specific metrics to retrieve
 
 ### `create_app_report`
+
 Creates a comprehensive report for an app.
 
 **Parameters:**
+
 - `appId` (string, required): The unique identifier of the app
 - `reportType` (string, required): Type of report ('summary', 'detailed', 'competitive')
 - `includeReviews` (boolean, optional): Include reviews in report (default: true)
@@ -55,22 +65,26 @@ Creates a comprehensive report for an app.
 ## Installation
 
 1. Clone the repository:
+
 ```bash
 git clone <repository-url>
 cd AppBotMcp
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Create environment configuration:
+
 ```bash
 cp .env.example .env
 ```
 
 4. Edit `.env` with your AppBot API credentials:
+
 ```
 APPBOT_API_BASE_URL=https://api.appbot.com
 APPBOT_API_KEY=your_api_key_here
@@ -80,9 +94,11 @@ APPBOT_API_VERSION=v1
 ## Development
 
 ### VS Code Setup (Recommended)
+
 For the best development experience, see the [VS Code Setup Guide](docs/vscode-setup.md).
 
 Quick start:
+
 ```bash
 # Open in VS Code
 code appbot-mcp.code-workspace
@@ -96,21 +112,25 @@ Use VS Code Command Palette (`Cmd+Shift+P`) for tasks like "AppBot - Build", "Ap
 ### Command Line Development
 
 #### Build the project:
+
 ```bash
 npm run build
 ```
 
 #### Run in development mode:
+
 ```bash
 npm run dev
 ```
 
 #### Run with watch mode:
+
 ```bash
 npm run watch
 ```
 
 #### Run tests:
+
 ```bash
 npm test
 ```
@@ -134,17 +154,21 @@ This server implements the Model Context Protocol and can be used with any MCP-c
 ### VS Code Development Setup
 
 #### 1. Open in VS Code
+
 ```bash
 code /path/to/AppBotMcp
 ```
 
 #### 2. Install Recommended Extensions
+
 VS Code will prompt to install recommended extensions, or install manually:
+
 - TypeScript and JavaScript Language Features
 - Prettier - Code formatter
 - JSON Language Features
 
 #### 3. Development Tasks
+
 Use `Cmd+Shift+P` (macOS) or `Ctrl+Shift+P` (Windows/Linux) to access VS Code tasks:
 
 - **AppBot - Build**: Compile TypeScript to JavaScript
@@ -155,13 +179,17 @@ Use `Cmd+Shift+P` (macOS) or `Ctrl+Shift+P` (Windows/Linux) to access VS Code ta
 - **AppBot MCP - Test Connection**: Test MCP protocol communication
 
 #### 4. Configuration Files
+
 The project includes VS Code configuration:
+
 - `.vscode/settings.json`: Editor and TypeScript settings
 - `.vscode/tasks.json`: Build and test tasks
 - `.vscode/mcp-config.json`: MCP server configuration template
 
 #### 5. Testing the MCP Server
+
 Run the MCP test task to verify the server responds to protocol messages:
+
 ```bash
 # Via VS Code Command Palette
 Tasks: Run Task → AppBot MCP - Test Connection
@@ -173,12 +201,15 @@ echo '{"jsonrpc": "2.0", "id": 1, "method": "tools/list"}' | node dist/index.js
 ### Claude Desktop Integration
 
 #### macOS Configuration
+
 Location: `~/Library/Application Support/Claude/claude_desktop_config.json`
 
-#### Windows Configuration  
+#### Windows Configuration
+
 Location: `%APPDATA%/Claude/claude_desktop_config.json`
 
 #### Configuration Content
+
 ```json
 {
   "mcpServers": {
